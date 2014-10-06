@@ -88,7 +88,7 @@ class JmspiderSpider(scrapy.Spider):
             self.log("can not get event scope. block: %s" % columns[4], ERROR)
             item["e_scope"] = ""
 
-          col_text = columns[4].xpath(".//text()").extract()
+          col_text = columns[5].xpath(".//text()").extract()
           if len(col_text) > 0:
             item["e_invester"] = col_text[0].encode("utf8").strip()
           else:
