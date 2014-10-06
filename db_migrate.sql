@@ -2,7 +2,7 @@
 CREATE DATABASE itjuzi;
 CREATE TABLE itjuzi.invest_event (
   id INT NOT NULL AUTO_INCREMENT UNIQUE,
-  event_time TIMESTAMP NOT NULL,
+  event_time VARCHAR(1024) NOT NULL,
   invester VARCHAR(1024) NOT NULL,
   company_name VARCHAR(1024) NOT NULL,
   raised_money VARCHAR(1024) NOT NULL,

@@ -35,7 +35,7 @@ class InvestEventItem(scrapy.Item):
     def save2mysql(self, db_connection):
       cur = db_connection.cursor()
       ts = now()
-      cur.execute("INSERT INTO invest_event (event_time, invester, company_name, raised_money, round, scope, scraped_time) VALUES (%s, %s, %s, %s, %s, %s, %s)", (self['e_time'], self['e_invester'], self['e_corp'], self['e_money'], self['e_round'], self['e_scope'], ts)
+      cur.execute("INSERT INTO invest_event (event_time, invester, company_name, raised_money, round, scope, scraped_time) VALUES (%s, %s, %s, %s, %s, %s, %s)", (self['e_time'], self['e_invester'], self['e_corp'], self['e_money'], self['e_round'], self['e_scope'], ts))
       db_connection.commit()
       cur.close()
 
