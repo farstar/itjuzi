@@ -1,5 +1,6 @@
+# run the following commands with root user
 # create schema
-CREATE DATABASE itjuzi;
+CREATE DATABASE itjuzi DEFAULT CHARACTER SET utf8;
 CREATE TABLE itjuzi.invest_event (
   id INT NOT NULL AUTO_INCREMENT UNIQUE,
   event_time VARCHAR(1024) NOT NULL,
