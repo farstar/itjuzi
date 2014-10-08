@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy import Request
-from scrapy.log import INFO, DEBUG, ERROR
+from scrapy.log import INFO, DEBUG, ERROR, WARNING
 from itjuzi.items import InvestEventItem
 
 import datetime
@@ -57,42 +57,42 @@ class JmspiderSpider(scrapy.Spider):
               continue
             item["e_time"] = col_text[0].encode("utf8").strip()
           else:
-            self.log("can not get event time. block: %s" % columns[0], ERROR)
+            self.log("can not get event time. block: %s" % columns[0], WARNING)
             item["e_time"] = ""
 
           col_text = columns[1].xpath(".//text()").extract()
           if len(col_text) > 0:
             item["e_corp"] = col_text[0].encode("utf8").strip()
           else:
-            self.log("can not get event company. block: %s" % columns[1], ERROR)
+            self.log("can not get event company. block: %s" % columns[1], WARNING)
             item["e_corp"] = ""
 
           col_text = columns[2].xpath(".//text()").extract()
           if len(col_text) > 0:
             item["e_round"] = col_text[0].encode("utf8").strip()
           else:
-            self.log("can not get event round. block: %s" % columns[2], ERROR)
+            self.log("can not get event round. block: %s" % columns[2], WARNING)
             item["e_round"] = ""
 
           col_text = columns[3].xpath(".//text()").extract()
           if len(col_text) > 0:
             item["e_money"] = col_text[0].encode("utf8").strip()
           else:
-            self.log("can not get event money. block: %s" % columns[3], ERROR)
+            self.log("can not get event money. block: %s" % columns[3], WARNING)
             item["e_money"] = ""
 
           col_text = columns[4].xpath(".//text()").extract()
           if len(col_text) > 0:
             item["e_scope"] = col_text[0].encode("utf8").strip()
           else:
-            self.log("can not get event scope. block: %s" % columns[4], ERROR)
+            self.log("can not get event scope. block: %s" % columns[4], WARNING)
             item["e_scope"] = ""
 
           col_text = columns[5].xpath(".//text()").extract()
           if len(col_text) > 0:
             item["e_invester"] = col_text[0].encode("utf8").strip()
           else:
-            self.log("can not get event invester. block: %s" % columns[5], ERROR)
+            self.log("can not get event invester. block: %s" % columns[5], WARNING)
             item["e_invester"] = ""
 
           yield item
